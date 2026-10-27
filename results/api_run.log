@@ -1,0 +1,228 @@
+[API/harness/__init__.py] loading harness modules
+[API/harness/tools.py] advertising 3 function declarations
+[API/harness/caching.py] implicit caching: stable system instruction + tools prefix frozen for session
+
+=== [session_1] Turn 1: Hi! I'm vegetarian and I'm allergic to peanuts. Please remember both of those for the future.
+[API/harness/memory.py] selected 0 fact(s) from memory
+[API/harness/memory.py] no stored facts for this user
+[API/harness/context.py] built user turn with 1 part(s) (summary=no, memory=no)
+[API/harness/history.py] appended user message (1 part(s)); total=1
+[API/harness/loop.py] Executing turn iteration 1/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=1 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 1: in=682 out=280 (thinking=210) cache_read=0 context=682
+[API/harness/caching.py] cache hit: 0/682 prompt tokens (0%)
+[API/harness/history.py] appended model message (2 part(s)); total=2
+[API/harness/loop.py] stop_reason=tool_use
+[API/harness/tools.py] parsed 2 function call(s): ['save_user_preference_or_recipe', 'save_user_preference_or_recipe']
+[API/harness/tools.py] dispatching save_user_preference_or_recipe args={"type": "preference", "key": "diet", "value": "vegetarian"}
+[API/harness/tools.py] save_user_preference_or_recipe ok (73 chars)
+[API/harness/tools.py] dispatching save_user_preference_or_recipe args={"key": "allergy", "value": "peanuts", "type": "preference"}
+[API/harness/tools.py] save_user_preference_or_recipe ok (73 chars)
+[API/harness/history.py] appended user message (2 part(s)); total=3
+[API/harness/loop.py] Executing turn iteration 2/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=3 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 2: in=1038 out=63 (thinking=27) cache_read=0 context=1038
+[API/harness/caching.py] cache hit: 0/1038 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=4
+[API/harness/loop.py] stop_reason=end_turn
+[API/harness/tools.py] parsed 0 function call(s): []
+=== [session_1] Assistant: Got it! I've saved your preferences: vegetarian diet and peanut allergy. I'll make sure all future recipe suggestions follow these guidelines. How can I help you today?
+
+
+=== [session_1] Turn 2: Can you find me a quick vegetarian dinner idea from your recipe collection?
+[API/harness/memory.py] selected 2 fact(s) from memory
+[API/harness/context.py] built user turn with 2 part(s) (summary=no, memory=yes)
+[API/harness/history.py] appended user message (2 part(s)); total=5
+[API/harness/loop.py] Executing turn iteration 1/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=5 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 1: in=1138 out=275 (thinking=253) cache_read=0 context=1138
+[API/harness/caching.py] cache hit: 0/1138 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=6
+[API/harness/loop.py] stop_reason=tool_use
+[API/harness/tools.py] parsed 1 function call(s): ['search_recipes']
+[API/harness/tools.py] dispatching search_recipes args={"tag": "vegetarian", "query": "dinner"}
+[API/harness/tools.py] search_recipes ok (321 chars)
+[API/harness/history.py] appended user message (1 part(s)); total=7
+[API/harness/loop.py] Executing turn iteration 2/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=7 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 2: in=1522 out=221 (thinking=115) cache_read=0 context=1522
+[API/harness/caching.py] cache hit: 0/1522 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=8
+[API/harness/loop.py] stop_reason=end_turn
+[API/harness/tools.py] parsed 0 function call(s): []
+=== [session_1] Assistant: Here is a quick vegetarian dinner idea from our database:
+
+### **Tomato Basil Pasta**
+* **Prep Time:** 20 minutes
+* **Key Ingredients:** Pasta, tomatoes, fresh basil, garlic, olive oil, Parmesan cheese
+* **Steps:** 
+  1. Boil pasta according to package instructions.
+  2. Sauté garlic in olive oil, then add chopped tomatoes and cook for 5 minutes.
+  3. Toss the pasta with the tomato sauce, fresh basil, and Parmesan cheese.
+
+
+=== [session_1] Turn 3: How many calories and how much protein are in pasta? Please check the nutrition database.
+[API/harness/memory.py] selected 2 fact(s) from memory
+[API/harness/context.py] built user turn with 2 part(s) (summary=no, memory=yes)
+[API/harness/history.py] appended user message (2 part(s)); total=9
+[API/harness/loop.py] Executing turn iteration 1/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=9 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 1: in=1783 out=108 (thinking=84) cache_read=0 context=1783
+[API/harness/caching.py] cache hit: 0/1783 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=10
+[API/harness/loop.py] stop_reason=tool_use
+[API/harness/tools.py] parsed 1 function call(s): ['fetch_external_nutrition_info']
+[API/harness/tools.py] dispatching fetch_external_nutrition_info args={"ingredient_or_dish": "pasta"}
+[API/harness/tools.py] fetch_external_nutrition_info ok (142 chars)
+[API/harness/history.py] appended user message (1 part(s)); total=11
+[API/harness/loop.py] Executing turn iteration 2/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=11 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 2: in=1960 out=116 (thinking=85) cache_read=0 context=1960
+[API/harness/caching.py] cache hit: 0/1960 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=12
+[API/harness/loop.py] stop_reason=end_turn
+[API/harness/tools.py] parsed 0 function call(s): []
+=== [session_1] Assistant: Per 100g serving of pasta:
+
+* **Calories:** 158 kcal  
+* **Protein:** 5.8 g
+
+
+=== [session_1] Turn 4: That Tomato Basil Pasta sounds great - please save it to my favourite recipes.
+[API/harness/memory.py] selected 2 fact(s) from memory
+[API/harness/context.py] built user turn with 2 part(s) (summary=no, memory=yes)
+[API/harness/history.py] appended user message (2 part(s)); total=13
+[API/harness/loop.py] Executing turn iteration 1/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=13 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 1: in=2114 out=386 (thinking=264) cache_read=0 context=2114
+[API/harness/caching.py] cache hit: 0/2114 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=14
+[API/harness/loop.py] stop_reason=tool_use
+[API/harness/tools.py] parsed 1 function call(s): ['save_user_preference_or_recipe']
+[API/harness/tools.py] dispatching save_user_preference_or_recipe args={"type": "recipe", "recipe": {"tags": ["vegetarian", "dinner", "quick"], "title": "Tomato Basil Pasta", "prep_time": 20, "ingredients": ["pasta", "tomato", "basil", "garlic", "olive oil", "parmesan"], "id": "r5", "instructions": "Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan."}}
+[API/harness/tools.py] save_user_preference_or_recipe ok (74 chars)
+[API/harness/history.py] appended user message (1 part(s)); total=15
+[API/harness/loop.py] Executing turn iteration 2/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=15 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 2: in=2541 out=58 (thinking=26) cache_read=0 context=2541
+[API/harness/caching.py] cache hit: 0/2541 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=16
+[API/harness/loop.py] stop_reason=end_turn
+[API/harness/tools.py] parsed 0 function call(s): []
+=== [session_1] Assistant: I've saved **Tomato Basil Pasta** to your favorite recipes! Let me know whenever you'd like to look it up or need another recipe idea.
+
+[API/harness/tokens.py] totals: requests=8 input=12778 output=1507 cache_read=0 cost=$0.0 (free tier)
+[API/harness/history.py] saved 16 message(s) to /Users/tamarkl/recipe-agent-tamar/results/state/api_session_1_history.json
+[API/harness/tools.py] advertising 3 function declarations
+[API/harness/caching.py] implicit caching: stable system instruction + tools prefix frozen for session
+
+=== [session_2] Turn 1: Hi again! What do you remember about my diet, allergies and saved recipes?
+[API/harness/memory.py] selected 3 fact(s) from memory
+[API/harness/context.py] built user turn with 2 part(s) (summary=no, memory=yes)
+[API/harness/history.py] appended user message (2 part(s)); total=1
+[API/harness/loop.py] Executing turn iteration 1/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=1 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 1: in=709 out=117 (thinking=82) cache_read=0 context=709
+[API/harness/caching.py] cache hit: 0/709 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=2
+[API/harness/loop.py] stop_reason=end_turn
+[API/harness/tools.py] parsed 0 function call(s): []
+=== [session_2] Assistant: Here is what I have saved for you:
+
+* **Diet:** Vegetarian  
+* **Allergies:** Peanuts  
+* **Saved Recipes:** Tomato Basil Pasta
+
+
+=== [session_2] Turn 2: Let's make the Chicken Stir Fry tonight - just give me that recipe.
+[API/harness/memory.py] selected 3 fact(s) from memory
+[API/harness/context.py] built user turn with 2 part(s) (summary=no, memory=yes)
+[API/harness/history.py] appended user message (2 part(s)); total=3
+[API/harness/loop.py] Executing turn iteration 1/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=3 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 1: in=878 out=201 (thinking=183) cache_read=0 context=878
+[API/harness/caching.py] cache hit: 0/878 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=4
+[API/harness/loop.py] stop_reason=tool_use
+[API/harness/tools.py] parsed 1 function call(s): ['search_recipes']
+[API/harness/tools.py] dispatching search_recipes args={"query": "Chicken Stir Fry"}
+[API/harness/tools.py] search_recipes ok (357 chars)
+[API/harness/history.py] appended user message (1 part(s)); total=5
+[API/harness/loop.py] Executing turn iteration 2/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=5 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 2: in=1197 out=142 (thinking=123) cache_read=0 context=1197
+[API/harness/caching.py] cache hit: 0/1197 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=6
+[API/harness/loop.py] stop_reason=tool_use
+[API/harness/tools.py] parsed 1 function call(s): ['search_recipes']
+[API/harness/tools.py] dispatching search_recipes args={"query": "Tofu Stir Fry"}
+[API/harness/tools.py] search_recipes ok (675 chars)
+[API/harness/history.py] appended user message (1 part(s)); total=7
+[API/harness/loop.py] Executing turn iteration 3/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=7 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 3: in=1558 out=41 (thinking=24) cache_read=0 context=1558
+[API/harness/caching.py] cache hit: 0/1558 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=8
+[API/harness/loop.py] stop_reason=tool_use
+[API/harness/tools.py] parsed 1 function call(s): ['search_recipes']
+[API/harness/tools.py] dispatching search_recipes args={"query": "stir fry"}
+[API/harness/tools.py] search_recipes ok (357 chars)
+[API/harness/history.py] appended user message (1 part(s)); total=9
+[API/harness/loop.py] Executing turn iteration 4/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=9 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 4: in=1717 out=232 (thinking=144) cache_read=0 context=1717
+[API/harness/caching.py] cache hit: 0/1717 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=10
+[API/harness/loop.py] stop_reason=end_turn
+[API/harness/tools.py] parsed 0 function call(s): []
+=== [session_2] Assistant: Just a heads-up: **Chicken Stir Fry** contains chicken breast, which conflicts with your vegetarian diet! 
+
+If you'd like, we can easily adapt the stir-fry recipe by swapping the chicken for **tofu** or extra vegetables like broccoli and bell peppers, or we could make a **Crispy Tofu Bowl** instead. 
+
+Would you like the modified vegetarian stir-fry recipe or the tofu bowl?
+
+
+=== [session_2] Turn 3: I want more protein. What's the nutrition for chickpeas?
+[API/harness/memory.py] selected 3 fact(s) from memory
+[API/harness/context.py] built user turn with 2 part(s) (summary=no, memory=yes)
+[API/harness/history.py] appended user message (2 part(s)); total=11
+[API/harness/loop.py] Executing turn iteration 1/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=11 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 1: in=1998 out=114 (thinking=88) cache_read=0 context=1998
+[API/harness/caching.py] cache hit: 0/1998 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=12
+[API/harness/loop.py] stop_reason=tool_use
+[API/harness/tools.py] parsed 1 function call(s): ['fetch_external_nutrition_info']
+[API/harness/tools.py] dispatching fetch_external_nutrition_info args={"ingredient_or_dish": "chickpeas"}
+[API/harness/tools.py] fetch_external_nutrition_info ok (146 chars)
+[API/harness/history.py] appended user message (1 part(s)); total=13
+[API/harness/loop.py] Executing turn iteration 2/8
+[API/harness/context.py] request ready: model=gemini-3.5-flash messages=13 tools_mode=AUTO cached_content=no
+[API/harness/tokens.py] iteration 2: in=2184 out=160 (thinking=91) cache_read=0 context=2184
+[API/harness/caching.py] cache hit: 0/2184 prompt tokens (0%)
+[API/harness/history.py] appended model message (1 part(s)); total=14
+[API/harness/loop.py] stop_reason=end_turn
+[API/harness/tools.py] parsed 0 function call(s): []
+=== [session_2] Assistant: Here are the nutrition facts for **chickpeas** (per 100g):
+
+* **Calories:** 164 kcal
+* **Protein:** 8.9 g
+* **Carbs:** 27 g
+* **Fat:** 2.6 g
+* **Fiber:** 7.6 g
+
+[API/harness/tokens.py] totals: requests=7 input=10241 output=1007 cache_read=0 cost=$0.0 (free tier)
+[API/harness/history.py] saved 14 message(s) to /Users/tamarkl/recipe-agent-tamar/results/state/api_session_2_history.json
+[assert] A1 PASS - Diet preference 'vegetarian' saved to persistent memory (diet "vegetarian")
+[assert] A2 PASS - Peanut allergy saved to persistent memory (allergy "peanuts")
+[assert] A3 PASS - Tomato Basil Pasta saved to favourite recipes (saved: ['Tomato Basil Pasta'])
+[assert] A4 PASS - Contradicting chicken request did not overwrite saved preferences (absent)
+[assert] A5 PASS - Session 1 conversation state persisted to disk (results/state/api_session_1_history.json)
+[assert] A6 PASS - Memory file exists on disk after both sessions (api_memory.json)
+[assert] A7 PASS - Memory tool was used in session 1 (tools: ['save_user_preference_or_recipe', 'save_user_preference_or_recipe', 'search_recipes', 'fetch_external_nutrition_info', 'save_user_preference_or_recipe'])
+[assert] A8 PASS - External nutrition tool called in session 1 (tools: ['save_user_preference_or_recipe', 'save_user_preference_or_recipe', 'search_recipes', 'fetch_external_nutrition_info', 'save_user_preference_or_recipe'])
+[assert] A9 PASS - External nutrition tool called in session 2 (tools: ['search_recipes', 'search_recipes', 'search_recipes', 'fetch_external_nutrition_info'])
+[assert] A10 PASS - Session 2 recalls the vegetarian diet from memory (matched ['vegetarian'])
+[assert] A11 PASS - Session 2 recalls the peanut allergy from memory (matched ['peanut'])
+[assert] A12 PASS - Agent flags that Chicken Stir Fry conflicts with the saved diet (matched ['vegetarian'])
+Wrote results/api.json: assertions 12/12 passed, cost $0, 118.49s

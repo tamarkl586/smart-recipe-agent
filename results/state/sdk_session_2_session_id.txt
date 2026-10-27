@@ -1,0 +1,144 @@
+[
+ {
+  "parts": [
+   {
+    "text": "<user_memory>\n- diet: vegetarian\n- allergy: peanuts\n- saved recipes: Tomato Basil Pasta\n</user_memory>\n\nHi again! What do you remember about my diet, allergies and saved recipes?"
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "text": "Here is what I remember:\n\n* **Diet:** Vegetarian\n* **Allergies:** Peanuts\n* **Saved recipes:** Tomato Basil Pasta",
+    "thought_signature": "EmAKXgFpFH0TPbEY8dAoDftmrmZseXV3CGsaGxJGxUZRlzUQeV14OuMTr51zrB71YbhCi6jMQAy1M5lmf2KnU3iQgdfD9Iyj_ANLcQbTkESFFtDl8oDDoptjC16r3SVzlhs="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "text": "<user_memory>\n- diet: vegetarian\n- allergy: peanuts\n- saved recipes: Tomato Basil Pasta\n</user_memory>\n\nLet's make the Chicken Stir Fry tonight - just give me that recipe."
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "function_call": {
+     "id": "call_3855687",
+     "args": {
+      "query": "Chicken Stir Fry",
+      "tag": null
+     },
+     "name": "search_recipes"
+    },
+    "thought_signature": "EmAKXgFpFH0Tmhqv6Ym_BPf_B_RxuIosIdAPz_eTth8noatMYQlQ7nX45hQQhkZGP9Vn_PcG5DKZp484ZqC6A7YO4DrJlaoPP_p22VfCnvom7v9BH6Ui3x4oZVXg4S1_8ZY="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "function_response": {
+     "name": "search_recipes",
+     "response": {
+      "result": {
+       "result": [
+        {
+         "id": "r3",
+         "title": "Chicken Stir Fry",
+         "ingredients": [
+          "chicken breast",
+          "broccoli",
+          "bell pepper",
+          "soy sauce",
+          "ginger",
+          "garlic",
+          "rice"
+         ],
+         "instructions": "Slice chicken and stir-fry until browned. Add vegetables, ginger and garlic, cook 4 min. Toss with soy sauce and serve over rice.",
+         "tags": [
+          "dinner",
+          "high-protein",
+          "quick"
+         ],
+         "prep_time": 20
+        }
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "text": "Just a quick heads-up: Chicken Stir Fry contains chicken, which conflicts with your **vegetarian** diet! \n\nIf you'd still like to make it (or if you'd like a vegetarian version with tofu or extra veggies instead), just let me know. Here is the original recipe:\n\n**Chicken Stir Fry**\n* **Key ingredients:** Chicken breast, broccoli, bell pepper, soy sauce, ginger, garlic, rice\n* **Steps:** Slice chicken and stir-fry until browned. Add vegetables, ginger, and garlic, and cook for 4 minutes. Toss with soy sauce and serve over rice.\n* **Prep time:** 20 mins",
+    "thought_signature": "EmAKXgFpFH0TaMA93MpU_S5lU2SzEx8S-2ATre92Cmx9GiH5rRbaa5cDsiQXcO0ioooKkNYqVRmgIS5dCZnzrmxIJaETies0wekc9sWq8m8uaISQ--rkC1kCqse2KNwn5oc="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "text": "<user_memory>\n- diet: vegetarian\n- allergy: peanuts\n- saved recipes: Tomato Basil Pasta\n</user_memory>\n\nI want more protein. What's the nutrition for chickpeas?"
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "function_call": {
+     "id": "call_4517772",
+     "args": {
+      "ingredient_or_dish": "chickpeas"
+     },
+     "name": "fetch_external_nutrition_info"
+    },
+    "thought_signature": "EmAKXgFpFH0TwVcwwsj9qeOsJ71eIY9aOezNC9MOGt5Klqrx_T_xOuh4g6ol7Vx-ptRonO_1wRDTjMQOAP2dtVAtjoCyFQq0AqBLX0nTJbLEW679YAriz8kkMqBSG8wnxoI="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "function_response": {
+     "name": "fetch_external_nutrition_info",
+     "response": {
+      "result": {
+       "result": {
+        "found": true,
+        "name": "chickpeas",
+        "source": "MockNutritionAPI",
+        "calories": 164,
+        "protein_g": 8.9,
+        "carbs_g": 27,
+        "fat_g": 2.6,
+        "fiber_g": 7.6
+       }
+      }
+     }
+    }
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "text": "Per 100g, boiled chickpeas contain:\n* **Calories:** 164\n* **Protein:** 8.9g\n* **Carbs:** 27g\n* **Fiber:** 7.6g\n* **Fat:** 2.6g",
+    "thought_signature": "EmAKXgFpFH0TeFqX9_EMG9ffgWREVfyYPCnSk865Cf-JjZ-D29DZN5eV1CG5lkdRVmVK8rjoETjqFpESbbDTwJpv0QPNqSfFHRIpm8AYOSVa_i0OBo3cRNcsZ9kmz1BasIY="
+   }
+  ],
+  "role": "model"
+ }
+]

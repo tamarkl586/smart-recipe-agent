@@ -1,0 +1,28 @@
+{
+  "preferences": {
+    "diet": "vegetarian",
+    "allergy": "peanuts"
+  },
+  "saved_recipes": [
+    {
+      "id": "r5",
+      "title": "Tomato Basil Pasta",
+      "ingredients": [
+        "pasta",
+        "tomato",
+        "basil",
+        "garlic",
+        "olive oil",
+        "parmesan"
+      ],
+      "instructions": "Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan.",
+      "tags": [
+        "vegetarian",
+        "dinner",
+        "quick"
+      ],
+      "prep_time": 20
+    }
+  ],
+  "notes": []
+}

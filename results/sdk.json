@@ -1,0 +1,335 @@
+{
+  "implementation": "SDK",
+  "scenario": "vegetarian-two-session-memory",
+  "model": "gemini-3.5-flash-lite",
+  "sessions": [
+    {
+      "name": "session_1",
+      "turns": [
+        {
+          "user": "Hi! I'm vegetarian and I'm allergic to peanuts. Please remember both of those for the future.",
+          "text": "Got it! I’ve noted that you're vegetarian and have a peanut allergy. I'll make sure to keep those in mind for all future recipes and recommendations. \n\nHow can I help you today?",
+          "stop_reason": "end_turn",
+          "model_calls": 2,
+          "tool_calls": [
+            {
+              "name": "save_user_preference_or_recipe",
+              "input": {
+                "key": "diet",
+                "value": "vegetarian",
+                "type": "preference"
+              },
+              "is_error": false
+            },
+            {
+              "name": "save_user_preference_or_recipe",
+              "input": {
+                "value": "peanuts",
+                "key": "allergy",
+                "type": "preference"
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 1.85
+        },
+        {
+          "user": "Can you find me a quick vegetarian dinner idea from your recipe collection?",
+          "text": "How about **Tomato Basil Pasta**? \n\n- **Key Ingredients:** Pasta, tomatoes, basil, garlic, olive oil, and parmesan.\n- **Prep Time:** 20 minutes.\n- **Steps:** Cook the pasta. Meanwhile, sauté the garlic in olive oil, add chopped tomatoes, and cook for 5 minutes. Toss everything together with fresh basil and parmesan.",
+          "stop_reason": "end_turn",
+          "model_calls": 2,
+          "tool_calls": [
+            {
+              "name": "search_recipes",
+              "input": {
+                "tag": "vegetarian",
+                "query": "quick dinner"
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 1.42
+        },
+        {
+          "user": "How many calories and how much protein are in pasta? Please check the nutrition database.",
+          "text": "Per 100g of cooked pasta:\n- **Calories:** 158\n- **Protein:** 5.8g",
+          "stop_reason": "end_turn",
+          "model_calls": 2,
+          "tool_calls": [
+            {
+              "name": "fetch_external_nutrition_info",
+              "input": {
+                "ingredient_or_dish": "pasta"
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 1.43
+        },
+        {
+          "user": "That Tomato Basil Pasta sounds great - please save it to my favourite recipes.",
+          "text": "I've saved **Tomato Basil Pasta** to your recipes! Let me know if you need anything else.",
+          "stop_reason": "end_turn",
+          "model_calls": 3,
+          "tool_calls": [
+            {
+              "name": "search_recipes",
+              "input": {
+                "query": "Tomato Basil Pasta",
+                "tag": "vegetarian"
+              },
+              "is_error": false
+            },
+            {
+              "name": "save_user_preference_or_recipe",
+              "input": {
+                "type": "recipe",
+                "recipe": {
+                  "id": "r5",
+                  "tags": [
+                    "vegetarian",
+                    "dinner",
+                    "quick"
+                  ],
+                  "ingredients": [
+                    "pasta",
+                    "tomato",
+                    "basil",
+                    "garlic",
+                    "olive oil",
+                    "parmesan"
+                  ],
+                  "prep_time": 20,
+                  "instructions": "Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan.",
+                  "title": "Tomato Basil Pasta"
+                }
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 2.23
+        }
+      ],
+      "usage": {
+        "input_tokens": 12604,
+        "output_tokens": 436,
+        "thinking_tokens": 0,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "model_calls": 9,
+        "estimated_cost_usd": 0.0,
+        "usage_complete": true
+      },
+      "compactions": 0,
+      "duration_s": 6.93
+    },
+    {
+      "name": "session_2",
+      "turns": [
+        {
+          "user": "Hi again! What do you remember about my diet, allergies and saved recipes?",
+          "text": "Here is what I remember:\n\n* **Diet:** Vegetarian\n* **Allergies:** Peanuts\n* **Saved recipes:** Tomato Basil Pasta",
+          "stop_reason": "end_turn",
+          "model_calls": 1,
+          "tool_calls": [],
+          "compacted": false,
+          "latency_s": 0.86
+        },
+        {
+          "user": "Let's make the Chicken Stir Fry tonight - just give me that recipe.",
+          "text": "Just a quick heads-up: Chicken Stir Fry contains chicken, which conflicts with your **vegetarian** diet! \n\nIf you'd still like to make it (or if you'd like a vegetarian version with tofu or extra veggies instead), just let me know. Here is the original recipe:\n\n**Chicken Stir Fry**\n* **Key ingredients:** Chicken breast, broccoli, bell pepper, soy sauce, ginger, garlic, rice\n* **Steps:** Slice chicken and stir-fry until browned. Add vegetables, ginger, and garlic, and cook for 4 minutes. Toss with soy sauce and serve over rice.\n* **Prep time:** 20 mins",
+          "stop_reason": "end_turn",
+          "model_calls": 2,
+          "tool_calls": [
+            {
+              "name": "search_recipes",
+              "input": {
+                "query": "Chicken Stir Fry",
+                "tag": null
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 1.58
+        },
+        {
+          "user": "I want more protein. What's the nutrition for chickpeas?",
+          "text": "Per 100g, boiled chickpeas contain:\n* **Calories:** 164\n* **Protein:** 8.9g\n* **Carbs:** 27g\n* **Fiber:** 7.6g\n* **Fat:** 2.6g",
+          "stop_reason": "end_turn",
+          "model_calls": 2,
+          "tool_calls": [
+            {
+              "name": "fetch_external_nutrition_info",
+              "input": {
+                "ingredient_or_dish": "chickpeas"
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 1.3
+        }
+      ],
+      "usage": {
+        "input_tokens": 5568,
+        "output_tokens": 275,
+        "thinking_tokens": 0,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "model_calls": 5,
+        "estimated_cost_usd": 0.0,
+        "usage_complete": true
+      },
+      "compactions": 0,
+      "duration_s": 3.73
+    }
+  ],
+  "assertions": {
+    "passed": 12,
+    "failed": 0,
+    "total": 12,
+    "checks": [
+      {
+        "id": "A1",
+        "type": "memory_contains",
+        "description": "Diet preference 'vegetarian' saved to persistent memory",
+        "passed": true,
+        "detail": "diet \"vegetarian\""
+      },
+      {
+        "id": "A2",
+        "type": "memory_contains",
+        "description": "Peanut allergy saved to persistent memory",
+        "passed": true,
+        "detail": "allergy \"peanuts\""
+      },
+      {
+        "id": "A3",
+        "type": "saved_recipe_exists",
+        "description": "Tomato Basil Pasta saved to favourite recipes",
+        "passed": true,
+        "detail": "saved: ['Tomato Basil Pasta']"
+      },
+      {
+        "id": "A4",
+        "type": "memory_not_contains",
+        "description": "Contradicting chicken request did not overwrite saved preferences",
+        "passed": true,
+        "detail": "absent"
+      },
+      {
+        "id": "A5",
+        "type": "state_file_exists",
+        "description": "Session 1 conversation state persisted to disk",
+        "passed": true,
+        "detail": "results/state/sdk_session_1_session_id.txt"
+      },
+      {
+        "id": "A6",
+        "type": "memory_file_exists",
+        "description": "Memory file exists on disk after both sessions",
+        "passed": true,
+        "detail": "sdk_memory.json"
+      },
+      {
+        "id": "A7",
+        "type": "tool_called",
+        "description": "Memory tool was used in session 1",
+        "passed": true,
+        "detail": "tools: ['save_user_preference_or_recipe', 'save_user_preference_or_recipe', 'search_recipes', 'fetch_external_nutrition_info', 'search_recipes', 'save_user_preference_or_recipe']"
+      },
+      {
+        "id": "A8",
+        "type": "tool_called",
+        "description": "External nutrition tool called in session 1",
+        "passed": true,
+        "detail": "tools: ['save_user_preference_or_recipe', 'save_user_preference_or_recipe', 'search_recipes', 'fetch_external_nutrition_info', 'search_recipes', 'save_user_preference_or_recipe']"
+      },
+      {
+        "id": "A9",
+        "type": "tool_called",
+        "description": "External nutrition tool called in session 2",
+        "passed": true,
+        "detail": "tools: ['search_recipes', 'fetch_external_nutrition_info']"
+      },
+      {
+        "id": "A10",
+        "type": "response_contains_any",
+        "description": "Session 2 recalls the vegetarian diet from memory",
+        "passed": true,
+        "detail": "matched ['vegetarian']"
+      },
+      {
+        "id": "A11",
+        "type": "response_contains_any",
+        "description": "Session 2 recalls the peanut allergy from memory",
+        "passed": true,
+        "detail": "matched ['peanut']"
+      },
+      {
+        "id": "A12",
+        "type": "response_contains_any",
+        "description": "Agent flags that Chicken Stir Fry conflicts with the saved diet",
+        "passed": true,
+        "detail": "matched ['vegetarian']"
+      }
+    ]
+  },
+  "metrics": {
+    "usage": {
+      "input_tokens": 18172,
+      "output_tokens": 711,
+      "thinking_tokens": 0,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "model_calls": 14,
+      "estimated_cost_usd": 0,
+      "usage_complete": true,
+      "cache_hit_pct": 0.0
+    },
+    "tools": {
+      "total_calls": 8,
+      "errors": 0,
+      "by_tool": {
+        "save_user_preference_or_recipe": 3,
+        "search_recipes": 3,
+        "fetch_external_nutrition_info": 2
+      }
+    },
+    "duration_s": 10.79,
+    "turns": 7,
+    "compactions": 0,
+    "harness_line_counts": {
+      "files": {
+        "SDK/__init__.py": {
+          "lines": 1,
+          "code_lines": 1
+        },
+        "SDK/agent.py": {
+          "lines": 180,
+          "code_lines": 140
+        },
+        "SDK/main.py": {
+          "lines": 106,
+          "code_lines": 87
+        },
+        "SDK/tools.py": {
+          "lines": 78,
+          "code_lines": 60
+        }
+      },
+      "total_lines": 365,
+      "total_code_lines": 288
+    }
+  },
+  "state_files": {
+    "memory": "/Users/tamarkl/recipe-agent-tamar/results/state/sdk_memory.json",
+    "session_1": "/Users/tamarkl/recipe-agent-tamar/results/state/sdk_session_1_session_id.txt",
+    "session_2": "/Users/tamarkl/recipe-agent-tamar/results/state/sdk_session_2_session_id.txt"
+  }
+}

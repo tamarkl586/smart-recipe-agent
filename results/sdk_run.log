@@ -1,0 +1,73 @@
+
+=== [session_1] Turn 1: Hi! I'm vegetarian and I'm allergic to peanuts. Please remember both of those for the future.
+[SDK/agent.py] tool call save_user_preference_or_recipe {'key': 'diet', 'value': 'vegetarian', 'type': 'preference'}
+[SDK/agent.py] tool call save_user_preference_or_recipe {'value': 'peanuts', 'key': 'allergy', 'type': 'preference'}
+=== [session_1] Assistant: Got it! I’ve noted that you're vegetarian and have a peanut allergy. I'll make sure to keep those in mind for all future recipes and recommendations. 
+
+How can I help you today?
+
+
+=== [session_1] Turn 2: Can you find me a quick vegetarian dinner idea from your recipe collection?
+[SDK/agent.py] tool call search_recipes {'tag': 'vegetarian', 'query': 'quick dinner'}
+=== [session_1] Assistant: How about **Tomato Basil Pasta**? 
+
+- **Key Ingredients:** Pasta, tomatoes, basil, garlic, olive oil, and parmesan.
+- **Prep Time:** 20 minutes.
+- **Steps:** Cook the pasta. Meanwhile, sauté the garlic in olive oil, add chopped tomatoes, and cook for 5 minutes. Toss everything together with fresh basil and parmesan.
+
+
+=== [session_1] Turn 3: How many calories and how much protein are in pasta? Please check the nutrition database.
+[SDK/agent.py] tool call fetch_external_nutrition_info {'ingredient_or_dish': 'pasta'}
+=== [session_1] Assistant: Per 100g of cooked pasta:
+- **Calories:** 158
+- **Protein:** 5.8g
+
+
+=== [session_1] Turn 4: That Tomato Basil Pasta sounds great - please save it to my favourite recipes.
+[SDK/agent.py] tool call search_recipes {'query': 'Tomato Basil Pasta', 'tag': 'vegetarian'}
+[SDK/agent.py] tool call save_user_preference_or_recipe {'type': 'recipe', 'recipe': {'id': 'r5', 'tags': ['vegetarian', 'dinner', 'quick'], 'ingredients': ['pasta', 'tomato', 'basil', 'garlic', 'olive oil', 'parmesan'], 'prep_time': 20, 'instructions': 'Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan.', 'title': 'Tomato Basil Pasta'}}
+=== [session_1] Assistant: I've saved **Tomato Basil Pasta** to your recipes! Let me know if you need anything else.
+
+
+=== [session_2] Turn 1: Hi again! What do you remember about my diet, allergies and saved recipes?
+=== [session_2] Assistant: Here is what I remember:
+
+* **Diet:** Vegetarian
+* **Allergies:** Peanuts
+* **Saved recipes:** Tomato Basil Pasta
+
+
+=== [session_2] Turn 2: Let's make the Chicken Stir Fry tonight - just give me that recipe.
+[SDK/agent.py] tool call search_recipes {'query': 'Chicken Stir Fry', 'tag': None}
+=== [session_2] Assistant: Just a quick heads-up: Chicken Stir Fry contains chicken, which conflicts with your **vegetarian** diet! 
+
+If you'd still like to make it (or if you'd like a vegetarian version with tofu or extra veggies instead), just let me know. Here is the original recipe:
+
+**Chicken Stir Fry**
+* **Key ingredients:** Chicken breast, broccoli, bell pepper, soy sauce, ginger, garlic, rice
+* **Steps:** Slice chicken and stir-fry until browned. Add vegetables, ginger, and garlic, and cook for 4 minutes. Toss with soy sauce and serve over rice.
+* **Prep time:** 20 mins
+
+
+=== [session_2] Turn 3: I want more protein. What's the nutrition for chickpeas?
+[SDK/agent.py] tool call fetch_external_nutrition_info {'ingredient_or_dish': 'chickpeas'}
+=== [session_2] Assistant: Per 100g, boiled chickpeas contain:
+* **Calories:** 164
+* **Protein:** 8.9g
+* **Carbs:** 27g
+* **Fiber:** 7.6g
+* **Fat:** 2.6g
+
+[assert] A1 PASS - Diet preference 'vegetarian' saved to persistent memory (diet "vegetarian")
+[assert] A2 PASS - Peanut allergy saved to persistent memory (allergy "peanuts")
+[assert] A3 PASS - Tomato Basil Pasta saved to favourite recipes (saved: ['Tomato Basil Pasta'])
+[assert] A4 PASS - Contradicting chicken request did not overwrite saved preferences (absent)
+[assert] A5 PASS - Session 1 conversation state persisted to disk (results/state/sdk_session_1_session_id.txt)
+[assert] A6 PASS - Memory file exists on disk after both sessions (sdk_memory.json)
+[assert] A7 PASS - Memory tool was used in session 1 (tools: ['save_user_preference_or_recipe', 'save_user_preference_or_recipe', 'search_recipes', 'fetch_external_nutrition_info', 'search_recipes', 'save_user_preference_or_recipe'])
+[assert] A8 PASS - External nutrition tool called in session 1 (tools: ['save_user_preference_or_recipe', 'save_user_preference_or_recipe', 'search_recipes', 'fetch_external_nutrition_info', 'search_recipes', 'save_user_preference_or_recipe'])
+[assert] A9 PASS - External nutrition tool called in session 2 (tools: ['search_recipes', 'fetch_external_nutrition_info'])
+[assert] A10 PASS - Session 2 recalls the vegetarian diet from memory (matched ['vegetarian'])
+[assert] A11 PASS - Session 2 recalls the peanut allergy from memory (matched ['peanut'])
+[assert] A12 PASS - Agent flags that Chicken Stir Fry conflicts with the saved diet (matched ['vegetarian'])
+Wrote results/sdk.json: assertions 12/12 passed, cost $0, 10.79s

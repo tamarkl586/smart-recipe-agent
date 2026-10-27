@@ -1,0 +1,284 @@
+{
+ "messages": [
+  {
+   "role": "user",
+   "parts": [
+    {
+     "text": "Hi! I'm vegetarian and I'm allergic to peanuts. Please remember both of those for the future."
+    }
+   ]
+  },
+  {
+   "role": "model",
+   "parts": [
+    {
+     "function_call": {
+      "id": "call_3461544",
+      "args": {
+       "type": "preference",
+       "key": "diet",
+       "value": "vegetarian"
+      },
+      "name": "save_user_preference_or_recipe"
+     },
+     "thought_signature": "EtUGCtIGAWkUfRPxGmmCk_5yBGW_VUbwtxXZ1rgCaS_Sxi-F29J0QK6AXGTBiWTEiw6irH8ejQOHB6-0XAxBoERHSZdY5e325gugP-oH0xdeaqtllxEI9E8KzxkEIItuH7kwkqV6cRLOjQu_G6-_o_D_cJbz_7rauLbxY9_vz-KLlKm4fxWHRlY0twxQF3GzDsF4Um3NEz6-D4KeNJ-_moqpPYljdio7b6O--YZ3AqKLH7PkddQfXAM6TJCDdHkBu19C96KJVJ01S9X5l-NhAnKnvYzFKR8nGbrSOSD2Y_HjLXB-ZA29VHD_BgDG_UapDCeYze0JZW3JojSH-mnKRJbA0QMfbaFYkfFRw0UIAWp_-zr-VpijoZ3eTbp_aPHwPYwThgKuFHNmxSy8ZzKimaRC0ZpCV4zZNYB4rkqr-g_V8T7H5Dnj19r-TEU5-Xj2OrOogeL-rfv5hMRzGsQI9BdFT_tCHXKnSSmqWJKI3l87jk5Iiks0x7-5l1D1FMLZh2lJAmbJ0znEKeFbokmosPKWt34gViym1rqT_aGMYRLw4ngeNXU987bdTCccZV_i1DOq91tW7-Tq-di3u01DbFDHKkmR13f0v4Ko6tRifzlsVr_AE-2k35u009gjsQkV_LN8fG0QanVd_ae_0632D4LU-MbVEtcgJQUondwJJdKW-JxLzc_PQZ_roubqYkG98ngW_TwPC2uMThhq821FzEj7r0t9k1i0kX2ICftvdLK1sXPBfbYVYlnoX28Ff6YyjuN2sToMiWLgXA5NEFVMMGMgPnGRI7Hup8S-fMJGlEjg_4C2eR8yts95Y7oN792BQnz493DCVhbeGS9LzgzIYAXs0aOFUoZnCFIKK4yBo3xx2IZQ-RPsFbf7z9JgFEJN28DeGEanj94UTdAwlwk_Cs8jK41YN1WhNItpxnEuywUNyVP39hb2CPO8eDysfk7GtUbdwX7PW6HuWHxwIUQla1kRoj9c8nXjXk0iXB_iKyUW8mtG0APsP1Z3JLsntgB1ASTosKUjg0sUsGUsaIDXeWGo85Zvhm5aZv6k__zMRK2QezqtUh6boyr8JbaTS4gwQsa7hRxSTuUjrLXBYdoDBwnT9aoVNYDXg4sf79SRT5RBdo975J_SYw=="
+    },
+    {
+     "function_call": {
+      "id": "call_3461545",
+      "args": {
+       "key": "allergy",
+       "value": "peanuts",
+       "type": "preference"
+      },
+      "name": "save_user_preference_or_recipe"
+     }
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "parts": [
+    {
+     "function_response": {
+      "name": "save_user_preference_or_recipe",
+      "response": {
+       "result": {
+        "ok": true,
+        "saved": "preference",
+        "key": "diet",
+        "value": "vegetarian"
+       }
+      },
+      "id": "call_3461544"
+     }
+    },
+    {
+     "function_response": {
+      "name": "save_user_preference_or_recipe",
+      "response": {
+       "result": {
+        "ok": true,
+        "saved": "preference",
+        "key": "allergy",
+        "value": "peanuts"
+       }
+      },
+      "id": "call_3461545"
+     }
+    }
+   ]
+  },
+  {
+   "role": "model",
+   "parts": [
+    {
+     "text": "Got it! I've saved your preferences: vegetarian diet and peanut allergy. I'll make sure all future recipe suggestions follow these guidelines. How can I help you today?",
+     "thought_signature": "EooCCocCAWkUfRNdRby_53dVx0box63eyDM9o3dif1zdlFIIb2Gzj_x_H4hKKMmGX8yXuJ8YA64IxDTSgq9bIpJzbjZfsJ9B4flQqIhjFE-bJPR07mNJdlUFExpf_blVeHfRHV23ZB_HuAtpnm-Wg7ASAZjmwngu1PeWY85acQYwkwgUYDJ_DZldVlOw5drv5u_6wzwpikzts_ZRq4TVN9u0yONmnJoimc_gnT5v3SuyovwwCRk6H0N_4poq-4MHPoFuvc_bzzcOuTuuYwATnEK13CNWr6fJ4wA6N4AH02fKAA_lgQzVLUiGZmFD-d8rjmLYTphmjEbMJb5NCnaj8Ux_evY7qnDQdvcaQXI="
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "parts": [
+    {
+     "text": "<user_memory>\n- diet: vegetarian\n- allergy: peanuts\n</user_memory>"
+    },
+    {
+     "text": "Can you find me a quick vegetarian dinner idea from your recipe collection?"
+    }
+   ]
+  },
+  {
+   "role": "model",
+   "parts": [
+    {
+     "function_call": {
+      "id": "call_3976581",
+      "args": {
+       "tag": "vegetarian",
+       "query": "dinner"
+      },
+      "name": "search_recipes"
+     },
+     "thought_signature": "Ev0HCvoHAWkUfROWEw6z50TvbnGU7EpQ-43e8Ry4wmeTa6R75xqkDPo_ORKAl4BC_oF7fVpMgACCPPYSQbMcZl6iAQR3qMGpDcKCdHmFggu-vT1g-g3DnxNGIcwn8X4MBXNsfNdkI7UY-vzHymlH9psQuxmh6Mi6xsZI-_J-YSV4E3nLOPTo2VyplTLxdmimB82pz-G49m_-2avJh9tMystYYHQaWdFo7wzQUbJEq-8f3rdz5C9vHrYce12OXOU7iTgGTV0sN7BzRK-kuKSvL2IThzbzedi4980HfPtN4JvdKRZeSAeGyvHjvwUiaygdRynGYNZGTvBBM37zkTlztQUVMo3fMiwvE2q0L23rmcTTxKXWWBaP7Sgq8-33ZBhbMHb2N6WXMXux0lScxtRI8s7OVSJ9VPGRmeaDiiuc3WpI85-S6rod01DmbADG9CkEHHhtErpnoTWE88jlo56Zt77UBaB9M_cJYqIhek-pcAZVT80_VmgxAv9D6haajx6tpZ76vIeBr6lgoNoEsU1YiiirkGhP2WuZwVEgml4CcUDkoiOeb5o15ZrSkBYX7FKBBYdVKt7-cQO0asOkITUsjzvwfL26rzey3ODwdLo-6D43TVWRO2bNWtqj-JTY5xgMntEW4Nsq7WbOAdg7Wtsgxs4dMDNaKBFD3_zA6ALpitF9ZDcvcZ4OH14OzROofco3mgSYSRK78Viit5CRl6BTfv6vvZIisVefYd6HuSsl9gw7LFufmM1l-P0vudhTipQI8oNkAEXUIqwpjr1REU4V9g1ehriMZw0adPFCULeZ-v0bWUR9g_3PJElaR_uCrtbh_y3_rFfvHd3HxqDlb0ZiANf7Lb43P_NrWDKsXPF8DKrLqw-cdBx-wwf8PZIraYDiTTyB7il6OXvDcbG5RXaRiAWZNjTvC3uIA2MFqPqCLso_Et1jCHXlPM3RncwdwS1HgRJCSjgPbhBcTaLV7wG0Obi88XyFZVlvHevO-6FKwDuortkKmudrgt0Iim9xYsre9bA_fBxYxLQP_nCWVyueuwbMBO9yAUHmmAcdk8ch9bwOyfH-hwY7NL-VSqo0IX87lkosq8k-SCIhqRGHpAwipXkcJqlm1b7O3Oq5_ANCPxHbkxNCIrx3Ocef8e06Tru5ip0-M_qoAEPN7KbZLKM__Z7rpuceyRmZ1NhO8ebcr2wnNRfRHYusBjUSqj2HEsIcD5b_QM7aVVDAVHLBA7Y9vM_LRbOL_3ZzhJGPae9eg_nt8RK5iezkd-QgNY5ATlE2w0nX_MGQaoDfh19H_L1yWOP7HethhcSD6SsW5kQHoCv6PDI0cD303YiqvXO3GWDOd3pja5DOz6cCQHWlq3G6QA=="
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "parts": [
+    {
+     "function_response": {
+      "name": "search_recipes",
+      "response": {
+       "result": [
+        {
+         "id": "r5",
+         "title": "Tomato Basil Pasta",
+         "ingredients": [
+          "pasta",
+          "tomato",
+          "basil",
+          "garlic",
+          "olive oil",
+          "parmesan"
+         ],
+         "instructions": "Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan.",
+         "tags": [
+          "vegetarian",
+          "dinner",
+          "quick"
+         ],
+         "prep_time": 20
+        }
+       ]
+      },
+      "id": "call_3976581"
+     }
+    }
+   ]
+  },
+  {
+   "role": "model",
+   "parts": [
+    {
+     "text": "Here is a quick vegetarian dinner idea from our database:\n\n### **Tomato Basil Pasta**\n* **Prep Time:** 20 minutes\n* **Key Ingredients:** Pasta, tomatoes, fresh basil, garlic, olive oil, Parmesan cheese\n* **Steps:** \n  1. Boil pasta according to package instructions.\n  2. Sauté garlic in olive oil, then add chopped tomatoes and cook for 5 minutes.\n  3. Toss the pasta with the tomato sauce, fresh basil, and Parmesan cheese.",
+     "thought_signature": "EtwECtkEAWkUfRNb4CXGSjrgLwmM-19yF2mZT3v-13pZFQmjZjBrjAFyog_ggFOlvNsc-JvO0JdiBAXZpVYz9teOvYw22hjXigDDH3STTQd4tKyV2MR840DVXs7LvuTgEa4HPn3PubO3Li04NSGNhAHcKBJEI4B_xl7_r_hGDAORId3EGCKQKbn3Pt9VGbRgvkbD30zYKpFD1NzZqOGMAYnj8m8pxndIO-n8NLrqGBKFNGMdBuqUfm7uWTS_BtLB1E9JbGlInmz80q3FDUut01Itk4Oy69KtpFrPuJ8c-1bHFq52aR2oGacg1tpeel539DJufC3apJxYl5JWekKHVoT_Ns8e0JjSzqy-MGm3TPVzDgchR45d3o_MsvaAEJsDZqDmhLJ51ANVDqKNgC2DUc0QPVTHeB2gqYrzpzzoQ7LxW6Ou0xgNtzMN7NMqYDA6olQC_ooDCPwX8zN5xp1dAg0VbSvAlQYeYb87jVov4JQOrCqA8mTxEg9WwkcuuCPWXxskU6TSmtoao3ij1Z8ZqtYpeulC-tBebheamtARvmRa-VsKQPD9DPIjivKTa6w1T14Q6UXBzQznhMSYi81MyYCFXKlByI8gDCOwvTyYGkvMcoM-vX0iw5LLEojJleJAfIeXKmi_h90lqP3Z56xYNzyMXiIhtwBfDhVbMwmiTcczsOgdZS7lcHPPrj3gau4eLTmUwboXz4rHN3DCnnToVww8aaCQXA9dr5GdjJV10kAXzeKarJkcdNTriV9XgbUUF4tU52WzmB3NiZtUiq87T6JRogsMcEytGv_TSuK3BQ=="
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "parts": [
+    {
+     "text": "<user_memory>\n- diet: vegetarian\n- allergy: peanuts\n</user_memory>"
+    },
+    {
+     "text": "How many calories and how much protein are in pasta? Please check the nutrition database."
+    }
+   ]
+  },
+  {
+   "role": "model",
+   "parts": [
+    {
+     "function_call": {
+      "id": "call_5240511",
+      "args": {
+       "ingredient_or_dish": "pasta"
+      },
+      "name": "fetch_external_nutrition_info"
+     },
+     "thought_signature": "Es0DCsoDAWkUfRPa8dwuigT_Pq99XF9Y5NEKUZ6RoH4KkXY0exfur1Dp3oxgprOxM1GfjB41Jcy_VxoSJtQ571Rtxelg-vP0m64TrY8TZgsqCDo8Gr4m-gDcwdMRkj8izeRYkeYrzt-_AonsQjoVvfRWrcNOmq-KWFbOrYe4W15yEvHdSdX8GmNGT_nx-XTZer66EEbJj50NyuHaLOBCOa5qtHdh33MXskfbrk158V61t0l8KZAXMvV_Ivg2_kM3nKlUV8cqemRjWdNGR5P_dnGya2FhZPw8bJTbdwcPTWQsojK9esJqgnvXg6NLEVE0ih7HwGea0hurRbHtXt6tqflrEnS6Oa3MWEt6n86u53gGDVVMnSNNkIQo_TXLn2inaG3Ygm2WEWC92ODR3TF5S1enq9XjV2MOzf7Wz6Se9rI8eR8NsczJvOXlWQYlUZ1VGkeE6w4yKwOOGhaEQzM4y_ErTlCaE369su6B-mCTb32p5N7OxtXa9DTMgjPfmaprF6QpvMVYdn8x9Rj2DJA98QViONQ3DV5jlY2MNhtoAhzHPYkASfLc9O9jBsZMIwj7Q1YGzkCzW-e8pH8PcWtmJjCLsaHxyg1hFnDouyBxcig="
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "parts": [
+    {
+     "function_response": {
+      "name": "fetch_external_nutrition_info",
+      "response": {
+       "result": {
+        "found": true,
+        "name": "pasta",
+        "source": "MockNutritionAPI",
+        "calories": 158,
+        "protein_g": 5.8,
+        "carbs_g": 31,
+        "fat_g": 0.9,
+        "fiber_g": 1.8
+       }
+      },
+      "id": "call_5240511"
+     }
+    }
+   ]
+  },
+  {
+   "role": "model",
+   "parts": [
+    {
+     "text": "Per 100g serving of pasta:\n\n* **Calories:** 158 kcal  \n* **Protein:** 5.8 g",
+     "thought_signature": "EsACCr0CAWkUfROr2y6bowbefx2PP0_o7s9jpGapJRIxyV6QmsaOETj2axk4pZE7i8DS889nF5Cc_DsRJKSJmejYrzJfVQqtTHsGVn6FwObO_C478rKoLu4nsXOff2BCblNnQnMSYs_U9Aopv3h9lFcYiyNCnbQ4XHv3rJDaSOunJWSaClJ70j-pJ2nwK_9XSlFOQ5P_YOHf35JxynDcNrdoee04_5XYC8kLRef2M60ERRbJyP7QigoyQwghD7nxZgmZaquMlIUl3S0ilpgoD2ldNw495Rf5Da93QKBz0zYn7-LrVATMkOseMdIZVb1YdqnZl0DrfBH8_70mbArGg7Keil6iwlUdvXwhcdCW3RRhwNn55Pr7DwB5IvmRiRC72-Qogv93Rk_YySSX2-60RDkzU-h-RubNN_MyaShjqreREkY="
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "parts": [
+    {
+     "text": "<user_memory>\n- diet: vegetarian\n- allergy: peanuts\n</user_memory>"
+    },
+    {
+     "text": "That Tomato Basil Pasta sounds great - please save it to my favourite recipes."
+    }
+   ]
+  },
+  {
+   "role": "model",
+   "parts": [
+    {
+     "function_call": {
+      "id": "call_4526843",
+      "args": {
+       "type": "recipe",
+       "recipe": {
+        "tags": [
+         "vegetarian",
+         "dinner",
+         "quick"
+        ],
+        "title": "Tomato Basil Pasta",
+        "prep_time": 20,
+        "ingredients": [
+         "pasta",
+         "tomato",
+         "basil",
+         "garlic",
+         "olive oil",
+         "parmesan"
+        ],
+        "id": "r5",
+        "instructions": "Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan."
+       }
+      },
+      "name": "save_user_preference_or_recipe"
+     },
+     "thought_signature": "EooICocIAWkUfROvsJWhZSDsRhmyrrnD50ipIqix0euReyc14iI3Q6EzXsc_kQkUsNkqV1F5zuVO-QWlDYYtbaJOQ028NgY5C0Um8EgB3C8rentdGazs1B9Ga7dBaeSyyHBDRsIk3bQEeoT7epWgzH8MWj4lRtckpJ5-xhruQLmcjtsO5b9JQirrV6BpiDbleojSqB36cT8QcmlKx--JQNMMtq-vAUqOhhc6hZM8Q7ckjR8xlzL6JqtYSD58edzr_Ty_k02Rpf3P4C0lvYGxhNMgjazlRXEwzmVbMK0P0B3RssOO340dnC8zUj8Ck13VcLyx-HK0haTJ1AcW68Z0m_WwWBjXyVmXof5keR2NleEOXuLF2JJUIKAiWL4EjC_89XAT4vju5i5pzyjA_O16_fzW2FLGOkJcLbZCqg6Pt9yJKnWiS0renNMpGTh44gsfmw8VrTt6LpzTKMr9DCFb0kc16rvCowHdoQElEWx3LYdgUVqjqPxhdmyxJiak4g2SLT1blPVbyTwOcu3hoKoVwnfpd91k2_ZdrGqNdxjTZvl6DColG3if8fM78RrvVne5sLNgaDyr8kUXaToPOE12iYJM9eAUsBoKHYfJdE0GYsRFyIJsopU3YWyFRgL24A_us7Q6pmrY1H78EZqfbsd6DB2bV4l_sxTy2T0U6P2U08sYQQxYN_x50K_jbsEGCNS4hSTL34sFvFjwCO71LrFGsg98si3EtcNzDe398DFDxIon8bYiuq-w_tMcf7uJpY7XVjn3mrW-pcO0piJgIeL4dhY_EwZ0qV9pGjwdkQiPaAKpnuHgncmkdaMdEUNhy5AkKZIky2sRSPLsxjeXQ2mysxXGV96z099fXaSaLS633VViHqHWz7o9nuriM0ms4RINHKtpZuIccl8y4A7uUT3ApthQhth43DCGA_VlXs9Ln8DRwkhL40qHEL903fweKlEW7guIQPEXcmFqM_ypBfwW03b6eiERKwGrPMH5Hg8Macpc3ueeVtbcAUnuMLUMu-_V2EkezyFs_7AildzcH9C6rbAA4wQmzWLOc8W6oc8BvhTf6n6axVD0Egm-hck7aeH6agOAnKd8bqNJZlJxHkfo5iOI0G2VKsA_vGcmMwBqWpfz8lY_RvJDmuB4Wp1gpj0IC349EmmL9jia4iiaPoMoc9lBZRwAXDCYpvK62EHZ7BJ1iW5oiImso7eWXsDtCgBNXx3SJ4FD5AgCOzxTh1YXgzj5qTC2OS8Fx0qsgQ5ohakps4mmT4o_rAWgcyDo1gayvhnbR4QR4p6i5uJntSfJj7VX7WUKB8IZio7Z__RHTO4HWWt-CQZWd6ZG8e2GQYIqaUPwZpSIu9y6HRfwK0DhKiXglyaly0TelUdfeT4="
+    }
+   ]
+  },
+  {
+   "role": "user",
+   "parts": [
+    {
+     "function_response": {
+      "name": "save_user_preference_or_recipe",
+      "response": {
+       "result": {
+        "ok": true,
+        "saved": "recipe",
+        "id": "r5",
+        "title": "Tomato Basil Pasta"
+       }
+      },
+      "id": "call_4526843"
+     }
+    }
+   ]
+  },
+  {
+   "role": "model",
+   "parts": [
+    {
+     "text": "I've saved **Tomato Basil Pasta** to your favorite recipes! Let me know whenever you'd like to look it up or need another recipe idea.",
+     "thought_signature": "EvsBCvgBAWkUfRP7GhpPLx9dRkAhsM4HugoJZKfZpeQxmoh8vRzr8VytFkt7Rfkk9IjSAAoZNJPFvJikP3nTwHx2vEvQonx5UNFT6XXh9YuhuWUm6qepj3saWW9Z4XMGe__oYHe5TKFgh9d0MFcG7oTac5e-9jRSaTt8SLERlyJAhzfP-ireogBmCupVFIso84e2LCn-kkzQmEaLET7CjygOcpZQt__cQiFpt9zZNhqdiu2v0l4SOEs1EVmU96JnNhHwUY-8Xr4P9VcoBSlDu-I8oCn49zbe_sdo2apm9JRBhM9k718KccGraiDtnyzlL7kMpw0pI9PwCX784Hk="
+    }
+   ]
+  }
+ ],
+ "compactions": 0
+}

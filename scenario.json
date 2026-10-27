@@ -1,0 +1,120 @@
+{
+  "name": "vegetarian-two-session-memory",
+  "description": "Session 1 teaches the agent the user's diet and saves a favourite; Session 2 is a brand-new conversation that must rely only on persisted memory, including a request that contradicts the saved diet.",
+  "model": "gemini-3.5-flash",
+  "max_tool_iterations": 8,
+  "compaction_threshold_tokens": 20000,
+  "fresh_memory": true,
+  "sessions": [
+    {
+      "name": "session_1",
+      "turns": [
+        "Hi! I'm vegetarian and I'm allergic to peanuts. Please remember both of those for the future.",
+        "Can you find me a quick vegetarian dinner idea from your recipe collection?",
+        "How many calories and how much protein are in pasta? Please check the nutrition database.",
+        "That Tomato Basil Pasta sounds great - please save it to my favourite recipes."
+      ]
+    },
+    {
+      "name": "session_2",
+      "resume_previous": false,
+      "turns": [
+        "Hi again! What do you remember about my diet, allergies and saved recipes?",
+        "Let's make the Chicken Stir Fry tonight - just give me that recipe.",
+        "I want more protein. What's the nutrition for chickpeas?"
+      ]
+    }
+  ],
+  "assertions": [
+    {
+      "id": "A1",
+      "type": "memory_contains",
+      "section": "preferences",
+      "value": "vegetarian",
+      "description": "Diet preference 'vegetarian' saved to persistent memory"
+    },
+    {
+      "id": "A2",
+      "type": "memory_contains",
+      "section": "any",
+      "value": "peanut",
+      "description": "Peanut allergy saved to persistent memory"
+    },
+    {
+      "id": "A3",
+      "type": "saved_recipe_exists",
+      "title_contains": "tomato basil",
+      "description": "Tomato Basil Pasta saved to favourite recipes"
+    },
+    {
+      "id": "A4",
+      "type": "memory_not_contains",
+      "section": "preferences",
+      "value": "chicken",
+      "description": "Contradicting chicken request did not overwrite saved preferences"
+    },
+    {
+      "id": "A5",
+      "type": "state_file_exists",
+      "file": "session_1",
+      "description": "Session 1 conversation state persisted to disk"
+    },
+    {
+      "id": "A6",
+      "type": "memory_file_exists",
+      "description": "Memory file exists on disk after both sessions"
+    },
+    {
+      "id": "A7",
+      "type": "tool_called",
+      "tool": "save_user_preference_or_recipe",
+      "session": "session_1",
+      "description": "Memory tool was used in session 1"
+    },
+    {
+      "id": "A8",
+      "type": "tool_called",
+      "tool": "fetch_external_nutrition_info",
+      "session": "session_1",
+      "description": "External nutrition tool called in session 1"
+    },
+    {
+      "id": "A9",
+      "type": "tool_called",
+      "tool": "fetch_external_nutrition_info",
+      "session": "session_2",
+      "description": "External nutrition tool called in session 2"
+    },
+    {
+      "id": "A10",
+      "type": "response_contains_any",
+      "session": "session_2",
+      "turn": 1,
+      "values": [
+        "vegetarian"
+      ],
+      "description": "Session 2 recalls the vegetarian diet from memory"
+    },
+    {
+      "id": "A11",
+      "type": "response_contains_any",
+      "session": "session_2",
+      "turn": 1,
+      "values": [
+        "peanut"
+      ],
+      "description": "Session 2 recalls the peanut allergy from memory"
+    },
+    {
+      "id": "A12",
+      "type": "response_contains_any",
+      "session": "session_2",
+      "turn": 2,
+      "values": [
+        "vegetarian",
+        "meat"
+      ],
+      "description": "Agent flags that Chicken Stir Fry conflicts with the saved diet"
+    }
+  ]
+}

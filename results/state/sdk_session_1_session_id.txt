@@ -1,0 +1,366 @@
+[
+ {
+  "parts": [
+   {
+    "text": "Hi! I'm vegetarian and I'm allergic to peanuts. Please remember both of those for the future."
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "function_call": {
+     "id": "call_4788387",
+     "args": {
+      "key": "diet",
+      "value": "vegetarian",
+      "type": "preference"
+     },
+     "name": "save_user_preference_or_recipe"
+    },
+    "thought_signature": "EmAKXgFpFH0TNMaXSCJ8yHoK0lr-IFqFSK_xHNc2mRHdBO6KCjuqH_mL2yFNUBZApP6lXOZF8H8OALjJSYHzdQaf9I-8WKVFQFUHZCR-6IvQbtiFe1moHmSqbtFLT7WrY9c="
+   },
+   {
+    "function_call": {
+     "id": "call_4788388",
+     "args": {
+      "value": "peanuts",
+      "key": "allergy",
+      "type": "preference"
+     },
+     "name": "save_user_preference_or_recipe"
+    }
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "function_response": {
+     "name": "save_user_preference_or_recipe",
+     "response": {
+      "result": {
+       "result": {
+        "ok": true,
+        "saved": "preference",
+        "key": "diet",
+        "value": "vegetarian"
+       }
+      }
+     }
+    }
+   },
+   {
+    "function_response": {
+     "name": "save_user_preference_or_recipe",
+     "response": {
+      "result": {
+       "result": {
+        "ok": true,
+        "saved": "preference",
+        "key": "allergy",
+        "value": "peanuts"
+       }
+      }
+     }
+    }
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "text": "Got it! I’ve noted that you're vegetarian and have a peanut allergy. I'll make sure to keep those in mind for all future recipes and recommendations. \n\nHow can I help you today?",
+    "thought_signature": "EmAKXgFpFH0T6bGxHtLRHhYCGJKaXQfgUO0xZCDqVS1S1ZNXggCepFDEVDIrVcngHnZD5DUqMoA6UkrZsH5Oafi0p7eablLXz3ve5HGJN9MkakwMcvVFnqpNNK9vJfnWWDc="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "text": "<user_memory>\n- diet: vegetarian\n- allergy: peanuts\n</user_memory>\n\nCan you find me a quick vegetarian dinner idea from your recipe collection?"
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "function_call": {
+     "id": "call_3251434",
+     "args": {
+      "tag": "vegetarian",
+      "query": "quick dinner"
+     },
+     "name": "search_recipes"
+    },
+    "thought_signature": "EmAKXgFpFH0T5rbMOs2XzXKte6Ajiv9fW28LQAS7yh4NFygueH9oqu1Vn70hQP3AxUMPUsNmji_F0Cg0bNRMoV-P4_lhxmo7aNTck--RFtNCWUmv3gAXm0bhhFTaupgL1Mo="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "function_response": {
+     "name": "search_recipes",
+     "response": {
+      "result": {
+       "result": [
+        {
+         "id": "r5",
+         "title": "Tomato Basil Pasta",
+         "ingredients": [
+          "pasta",
+          "tomato",
+          "basil",
+          "garlic",
+          "olive oil",
+          "parmesan"
+         ],
+         "instructions": "Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan.",
+         "tags": [
+          "vegetarian",
+          "dinner",
+          "quick"
+         ],
+         "prep_time": 20
+        },
+        {
+         "id": "r7",
+         "title": "Overnight Oats",
+         "ingredients": [
+          "oats",
+          "milk",
+          "banana",
+          "honey",
+          "cinnamon"
+         ],
+         "instructions": "Mix oats, milk, honey and cinnamon in a jar. Refrigerate overnight. Top with sliced banana.",
+         "tags": [
+          "vegetarian",
+          "breakfast",
+          "quick"
+         ],
+         "prep_time": 5
+        }
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "text": "How about **Tomato Basil Pasta**? \n\n- **Key Ingredients:** Pasta, tomatoes, basil, garlic, olive oil, and parmesan.\n- **Prep Time:** 20 minutes.\n- **Steps:** Cook the pasta. Meanwhile, sauté the garlic in olive oil, add chopped tomatoes, and cook for 5 minutes. Toss everything together with fresh basil and parmesan.",
+    "thought_signature": "EmAKXgFpFH0T_SF5Vtsxo6jsdC1nFbF-o6G8LsWU9e2Y1lHcoLmafa1Y-qNjFEtx6qVPj3VIQH-5T0dZmeVMnKkEYm4WR-mnkQVwcRgfZJVzsKLpXvRxTmHPWegya5YTl7g="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "text": "<user_memory>\n- diet: vegetarian\n- allergy: peanuts\n</user_memory>\n\nHow many calories and how much protein are in pasta? Please check the nutrition database."
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "function_call": {
+     "id": "call_4029920",
+     "args": {
+      "ingredient_or_dish": "pasta"
+     },
+     "name": "fetch_external_nutrition_info"
+    },
+    "thought_signature": "EmAKXgFpFH0TcaALdj-60Z1mZDTlHSS_ioLNir6BP2TTSxuW8CWqACT8hmpsMpejKecOfaIPXIeoCxmqJ0e6_FRqxGjJAePlZE-URN8cWEhTlp3Dr84jBy9wjXz2owm5QCc="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "function_response": {
+     "name": "fetch_external_nutrition_info",
+     "response": {
+      "result": {
+       "result": {
+        "found": true,
+        "name": "pasta",
+        "source": "MockNutritionAPI",
+        "calories": 158,
+        "protein_g": 5.8,
+        "carbs_g": 31,
+        "fat_g": 0.9,
+        "fiber_g": 1.8
+       }
+      }
+     }
+    }
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "text": "Per 100g of cooked pasta:\n- **Calories:** 158\n- **Protein:** 5.8g",
+    "thought_signature": "EmAKXgFpFH0TCghyLhfULPYjFrQHEVlqKrmocOUp6BIOVyfwtQuFL-v4x5SZYPs93LkYvVvRStuBx7dSSENDPUj529Hw3731niR4KaK5AfcH5wpEh7v9An7HKTmCuZtnwWI="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "text": "<user_memory>\n- diet: vegetarian\n- allergy: peanuts\n</user_memory>\n\nThat Tomato Basil Pasta sounds great - please save it to my favourite recipes."
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "function_call": {
+     "id": "call_3958916",
+     "args": {
+      "query": "Tomato Basil Pasta",
+      "tag": "vegetarian"
+     },
+     "name": "search_recipes"
+    },
+    "thought_signature": "EmAKXgFpFH0TDdzsIp8ciDopsSxtRMh4JmXVJVtuYC7aUHDvVPtwg-ne9_oJIGJPffyfs5kS7tqfz591TOFUDK8hR8Sz9fGFskojeF2tIUWQVMpXzYuh2W8bCGpV4UYnZow="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "function_response": {
+     "name": "search_recipes",
+     "response": {
+      "result": {
+       "result": [
+        {
+         "id": "r5",
+         "title": "Tomato Basil Pasta",
+         "ingredients": [
+          "pasta",
+          "tomato",
+          "basil",
+          "garlic",
+          "olive oil",
+          "parmesan"
+         ],
+         "instructions": "Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan.",
+         "tags": [
+          "vegetarian",
+          "dinner",
+          "quick"
+         ],
+         "prep_time": 20
+        },
+        {
+         "id": "r1",
+         "title": "Shakshuka",
+         "ingredients": [
+          "egg",
+          "tomato",
+          "onion",
+          "bell pepper",
+          "garlic",
+          "cumin",
+          "olive oil"
+         ],
+         "instructions": "Saute onion, pepper and garlic in oil. Add tomatoes and cumin, simmer 10 min. Make wells, crack in eggs, cover and cook until set.",
+         "tags": [
+          "vegetarian",
+          "breakfast",
+          "gluten-free"
+         ],
+         "prep_time": 25
+        }
+       ]
+      }
+     }
+    }
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "function_call": {
+     "id": "call_3420685",
+     "args": {
+      "type": "recipe",
+      "recipe": {
+       "id": "r5",
+       "tags": [
+        "vegetarian",
+        "dinner",
+        "quick"
+       ],
+       "ingredients": [
+        "pasta",
+        "tomato",
+        "basil",
+        "garlic",
+        "olive oil",
+        "parmesan"
+       ],
+       "prep_time": 20,
+       "instructions": "Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan.",
+       "title": "Tomato Basil Pasta"
+      }
+     },
+     "name": "save_user_preference_or_recipe"
+    },
+    "thought_signature": "EmAKXgFpFH0TA4prxJbr4DhRInSMD89rCfp0SEqkipfm2whmxJANilNJYer5OkJGaN4Hsu47RLD4icIZg8e0ToBs8k4PGFc8e-vve-tZy20PN677QfJA6r4kR0v-vWBM95w="
+   }
+  ],
+  "role": "model"
+ },
+ {
+  "parts": [
+   {
+    "function_response": {
+     "name": "save_user_preference_or_recipe",
+     "response": {
+      "result": {
+       "result": {
+        "ok": true,
+        "saved": "recipe",
+        "id": "r5",
+        "title": "Tomato Basil Pasta"
+       }
+      }
+     }
+    }
+   }
+  ],
+  "role": "user"
+ },
+ {
+  "parts": [
+   {
+    "text": "I've saved **Tomato Basil Pasta** to your recipes! Let me know if you need anything else.",
+    "thought_signature": "EmAKXgFpFH0THtDLdjmCGllfneyTMzQX4WwQpb_f_s8hG_3Ze4J3NqNfiZfjisBDT_q19EajYyQFr7YdW3624AZkpshZR_L9CIJfv5I39kuVq14cAVahFzIKPk5y96sz80I="
+   }
+  ],
+  "role": "model"
+ }
+]

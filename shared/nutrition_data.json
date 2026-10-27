@@ -1,0 +1,22 @@
+{
+  "_note": "values per 100g unless serving_note says otherwise",
+  "_source": "MockNutritionAPI",
+  "chicken breast": {"calories": 165, "protein_g": 31, "carbs_g": 0, "fat_g": 3.6, "fiber_g": 0},
+  "rice": {"calories": 130, "protein_g": 2.7, "carbs_g": 28, "fat_g": 0.3, "fiber_g": 0.4},
+  "pasta": {"calories": 158, "protein_g": 5.8, "carbs_g": 31, "fat_g": 0.9, "fiber_g": 1.8},
+  "tomato": {"calories": 18, "protein_g": 0.9, "carbs_g": 3.9, "fat_g": 0.2, "fiber_g": 1.2},
+  "chickpeas": {"calories": 164, "protein_g": 8.9, "carbs_g": 27, "fat_g": 2.6, "fiber_g": 7.6},
+  "egg": {"calories": 155, "protein_g": 13, "carbs_g": 1.1, "fat_g": 11, "fiber_g": 0},
+  "spinach": {"calories": 23, "protein_g": 2.9, "carbs_g": 3.6, "fat_g": 0.4, "fiber_g": 2.2},
+  "olive oil": {"calories": 884, "protein_g": 0, "carbs_g": 0, "fat_g": 100, "fiber_g": 0},
+  "lentils": {"calories": 116, "protein_g": 9, "carbs_g": 20, "fat_g": 0.4, "fiber_g": 7.9},
+  "salmon": {"calories": 208, "protein_g": 20, "carbs_g": 0, "fat_g": 13, "fiber_g": 0},
+  "avocado": {"calories": 160, "protein_g": 2, "carbs_g": 8.5, "fat_g": 14.7, "fiber_g": 6.7},
+  "tofu": {"calories": 76, "protein_g": 8, "carbs_g": 1.9, "fat_g": 4.8, "fiber_g": 0.3},
+  "oats": {"calories": 389, "protein_g": 16.9, "carbs_g": 66, "fat_g": 6.9, "fiber_g": 10.6},
+  "banana": {"calories": 89, "protein_g": 1.1, "carbs_g": 23, "fat_g": 0.3, "fiber_g": 2.6},
+  "shakshuka": {"calories": 140, "protein_g": 7, "carbs_g": 8, "fat_g": 9, "fiber_g": 2, "serving_note": "per 1 cup"},
+  "hummus": {"calories": 166, "protein_g": 7.9, "carbs_g": 14, "fat_g": 9.6, "fiber_g": 6},
+  "chicken stir fry": {"calories": 150, "protein_g": 14, "carbs_g": 9, "fat_g": 6, "fiber_g": 1.5, "serving_note": "per 1 cup"},
+  "lentil soup": {"calories": 90, "protein_g": 6, "carbs_g": 14, "fat_g": 1.5, "fiber_g": 5, "serving_note": "per 1 cup"}
+}

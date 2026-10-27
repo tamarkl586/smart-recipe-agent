@@ -1,0 +1,492 @@
+{
+  "implementation": "API",
+  "scenario": "vegetarian-two-session-memory",
+  "options": {
+    "model": "gemini-3.5-flash",
+    "max_tokens": 8192,
+    "thinking_budget": null,
+    "max_tool_iterations": 8,
+    "compaction_threshold_tokens": 20000,
+    "explicit_cache": false
+  },
+  "sessions": [
+    {
+      "name": "session_1",
+      "turns": [
+        {
+          "user": "Hi! I'm vegetarian and I'm allergic to peanuts. Please remember both of those for the future.",
+          "text": "Got it! I've saved your preferences: vegetarian diet and peanut allergy. I'll make sure all future recipe suggestions follow these guidelines. How can I help you today?",
+          "stop_reason": "end_turn",
+          "tool_calls": [
+            {
+              "name": "save_user_preference_or_recipe",
+              "input": {
+                "type": "preference",
+                "key": "diet",
+                "value": "vegetarian"
+              },
+              "is_error": false
+            },
+            {
+              "name": "save_user_preference_or_recipe",
+              "input": {
+                "key": "allergy",
+                "value": "peanuts",
+                "type": "preference"
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 4.78
+        },
+        {
+          "user": "Can you find me a quick vegetarian dinner idea from your recipe collection?",
+          "text": "Here is a quick vegetarian dinner idea from our database:\n\n### **Tomato Basil Pasta**\n* **Prep Time:** 20 minutes\n* **Key Ingredients:** Pasta, tomatoes, fresh basil, garlic, olive oil, Parmesan cheese\n* **Steps:** \n  1. Boil pasta according to package instructions.\n  2. Sauté garlic in olive oil, then add chopped tomatoes and cook for 5 minutes.\n  3. Toss the pasta with the tomato sauce, fresh basil, and Parmesan cheese.",
+          "stop_reason": "end_turn",
+          "tool_calls": [
+            {
+              "name": "search_recipes",
+              "input": {
+                "tag": "vegetarian",
+                "query": "dinner"
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 4.38
+        },
+        {
+          "user": "How many calories and how much protein are in pasta? Please check the nutrition database.",
+          "text": "Per 100g serving of pasta:\n\n* **Calories:** 158 kcal  \n* **Protein:** 5.8 g",
+          "stop_reason": "end_turn",
+          "tool_calls": [
+            {
+              "name": "fetch_external_nutrition_info",
+              "input": {
+                "ingredient_or_dish": "pasta"
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 9.69
+        },
+        {
+          "user": "That Tomato Basil Pasta sounds great - please save it to my favourite recipes.",
+          "text": "I've saved **Tomato Basil Pasta** to your favorite recipes! Let me know whenever you'd like to look it up or need another recipe idea.",
+          "stop_reason": "end_turn",
+          "tool_calls": [
+            {
+              "name": "save_user_preference_or_recipe",
+              "input": {
+                "type": "recipe",
+                "recipe": {
+                  "tags": [
+                    "vegetarian",
+                    "dinner",
+                    "quick"
+                  ],
+                  "title": "Tomato Basil Pasta",
+                  "prep_time": 20,
+                  "ingredients": [
+                    "pasta",
+                    "tomato",
+                    "basil",
+                    "garlic",
+                    "olive oil",
+                    "parmesan"
+                  ],
+                  "id": "r5",
+                  "instructions": "Cook pasta. Meanwhile saute garlic in oil, add chopped tomatoes and cook 5 min. Toss with pasta, basil and parmesan."
+                }
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 41.86
+        }
+      ],
+      "usage": {
+        "input_tokens": 12778,
+        "output_tokens": 1507,
+        "thinking_tokens": 1064,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "model_calls": 8,
+        "estimated_cost_usd": 0.0,
+        "usage_complete": true
+      },
+      "per_request_usage": [
+        {
+          "label": "iteration 1",
+          "input": 682,
+          "output": 280,
+          "thinking": 210,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 2",
+          "input": 1038,
+          "output": 63,
+          "thinking": 27,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 1",
+          "input": 1138,
+          "output": 275,
+          "thinking": 253,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 2",
+          "input": 1522,
+          "output": 221,
+          "thinking": 115,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 1",
+          "input": 1783,
+          "output": 108,
+          "thinking": 84,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 2",
+          "input": 1960,
+          "output": 116,
+          "thinking": 85,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 1",
+          "input": 2114,
+          "output": 386,
+          "thinking": 264,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 2",
+          "input": 2541,
+          "output": 58,
+          "thinking": 26,
+          "cache_read": 0,
+          "cache_write": 0
+        }
+      ],
+      "compactions": 0,
+      "duration_s": 60.7
+    },
+    {
+      "name": "session_2",
+      "turns": [
+        {
+          "user": "Hi again! What do you remember about my diet, allergies and saved recipes?",
+          "text": "Here is what I have saved for you:\n\n* **Diet:** Vegetarian  \n* **Allergies:** Peanuts  \n* **Saved Recipes:** Tomato Basil Pasta",
+          "stop_reason": "end_turn",
+          "tool_calls": [],
+          "compacted": false,
+          "latency_s": 1.75
+        },
+        {
+          "user": "Let's make the Chicken Stir Fry tonight - just give me that recipe.",
+          "text": "Just a heads-up: **Chicken Stir Fry** contains chicken breast, which conflicts with your vegetarian diet! \n\nIf you'd like, we can easily adapt the stir-fry recipe by swapping the chicken for **tofu** or extra vegetables like broccoli and bell peppers, or we could make a **Crispy Tofu Bowl** instead. \n\nWould you like the modified vegetarian stir-fry recipe or the tofu bowl?",
+          "stop_reason": "end_turn",
+          "tool_calls": [
+            {
+              "name": "search_recipes",
+              "input": {
+                "query": "Chicken Stir Fry"
+              },
+              "is_error": false
+            },
+            {
+              "name": "search_recipes",
+              "input": {
+                "query": "Tofu Stir Fry"
+              },
+              "is_error": false
+            },
+            {
+              "name": "search_recipes",
+              "input": {
+                "query": "stir fry"
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 13.84
+        },
+        {
+          "user": "I want more protein. What's the nutrition for chickpeas?",
+          "text": "Here are the nutrition facts for **chickpeas** (per 100g):\n\n* **Calories:** 164 kcal\n* **Protein:** 8.9 g\n* **Carbs:** 27 g\n* **Fat:** 2.6 g\n* **Fiber:** 7.6 g",
+          "stop_reason": "end_turn",
+          "tool_calls": [
+            {
+              "name": "fetch_external_nutrition_info",
+              "input": {
+                "ingredient_or_dish": "chickpeas"
+              },
+              "is_error": false
+            }
+          ],
+          "compacted": false,
+          "latency_s": 42.08
+        }
+      ],
+      "usage": {
+        "input_tokens": 10241,
+        "output_tokens": 1007,
+        "thinking_tokens": 735,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "model_calls": 7,
+        "estimated_cost_usd": 0.0,
+        "usage_complete": true
+      },
+      "per_request_usage": [
+        {
+          "label": "iteration 1",
+          "input": 709,
+          "output": 117,
+          "thinking": 82,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 1",
+          "input": 878,
+          "output": 201,
+          "thinking": 183,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 2",
+          "input": 1197,
+          "output": 142,
+          "thinking": 123,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 3",
+          "input": 1558,
+          "output": 41,
+          "thinking": 24,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 4",
+          "input": 1717,
+          "output": 232,
+          "thinking": 144,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 1",
+          "input": 1998,
+          "output": 114,
+          "thinking": 88,
+          "cache_read": 0,
+          "cache_write": 0
+        },
+        {
+          "label": "iteration 2",
+          "input": 2184,
+          "output": 160,
+          "thinking": 91,
+          "cache_read": 0,
+          "cache_write": 0
+        }
+      ],
+      "compactions": 0,
+      "duration_s": 57.67
+    }
+  ],
+  "assertions": {
+    "passed": 12,
+    "failed": 0,
+    "total": 12,
+    "checks": [
+      {
+        "id": "A1",
+        "type": "memory_contains",
+        "description": "Diet preference 'vegetarian' saved to persistent memory",
+        "passed": true,
+        "detail": "diet \"vegetarian\""
+      },
+      {
+        "id": "A2",
+        "type": "memory_contains",
+        "description": "Peanut allergy saved to persistent memory",
+        "passed": true,
+        "detail": "allergy \"peanuts\""
+      },
+      {
+        "id": "A3",
+        "type": "saved_recipe_exists",
+        "description": "Tomato Basil Pasta saved to favourite recipes",
+        "passed": true,
+        "detail": "saved: ['Tomato Basil Pasta']"
+      },
+      {
+        "id": "A4",
+        "type": "memory_not_contains",
+        "description": "Contradicting chicken request did not overwrite saved preferences",
+        "passed": true,
+        "detail": "absent"
+      },
+      {
+        "id": "A5",
+        "type": "state_file_exists",
+        "description": "Session 1 conversation state persisted to disk",
+        "passed": true,
+        "detail": "results/state/api_session_1_history.json"
+      },
+      {
+        "id": "A6",
+        "type": "memory_file_exists",
+        "description": "Memory file exists on disk after both sessions",
+        "passed": true,
+        "detail": "api_memory.json"
+      },
+      {
+        "id": "A7",
+        "type": "tool_called",
+        "description": "Memory tool was used in session 1",
+        "passed": true,
+        "detail": "tools: ['save_user_preference_or_recipe', 'save_user_preference_or_recipe', 'search_recipes', 'fetch_external_nutrition_info', 'save_user_preference_or_recipe']"
+      },
+      {
+        "id": "A8",
+        "type": "tool_called",
+        "description": "External nutrition tool called in session 1",
+        "passed": true,
+        "detail": "tools: ['save_user_preference_or_recipe', 'save_user_preference_or_recipe', 'search_recipes', 'fetch_external_nutrition_info', 'save_user_preference_or_recipe']"
+      },
+      {
+        "id": "A9",
+        "type": "tool_called",
+        "description": "External nutrition tool called in session 2",
+        "passed": true,
+        "detail": "tools: ['search_recipes', 'search_recipes', 'search_recipes', 'fetch_external_nutrition_info']"
+      },
+      {
+        "id": "A10",
+        "type": "response_contains_any",
+        "description": "Session 2 recalls the vegetarian diet from memory",
+        "passed": true,
+        "detail": "matched ['vegetarian']"
+      },
+      {
+        "id": "A11",
+        "type": "response_contains_any",
+        "description": "Session 2 recalls the peanut allergy from memory",
+        "passed": true,
+        "detail": "matched ['peanut']"
+      },
+      {
+        "id": "A12",
+        "type": "response_contains_any",
+        "description": "Agent flags that Chicken Stir Fry conflicts with the saved diet",
+        "passed": true,
+        "detail": "matched ['vegetarian']"
+      }
+    ]
+  },
+  "metrics": {
+    "usage": {
+      "input_tokens": 23019,
+      "output_tokens": 2514,
+      "thinking_tokens": 1799,
+      "cache_read_tokens": 0,
+      "cache_write_tokens": 0,
+      "model_calls": 15,
+      "estimated_cost_usd": 0,
+      "usage_complete": true,
+      "cache_hit_pct": 0.0
+    },
+    "tools": {
+      "total_calls": 9,
+      "errors": 0,
+      "by_tool": {
+        "save_user_preference_or_recipe": 3,
+        "search_recipes": 4,
+        "fetch_external_nutrition_info": 2
+      }
+    },
+    "duration_s": 118.49,
+    "turns": 7,
+    "compactions": 0,
+    "harness_line_counts": {
+      "files": {
+        "API/agent.py": {
+          "lines": 100,
+          "code_lines": 85
+        },
+        "API/harness/__init__.py": {
+          "lines": 7,
+          "code_lines": 4
+        },
+        "API/harness/caching.py": {
+          "lines": 68,
+          "code_lines": 54
+        },
+        "API/harness/compaction.py": {
+          "lines": 72,
+          "code_lines": 57
+        },
+        "API/harness/context.py": {
+          "lines": 75,
+          "code_lines": 56
+        },
+        "API/harness/history.py": {
+          "lines": 82,
+          "code_lines": 63
+        },
+        "API/harness/loop.py": {
+          "lines": 115,
+          "code_lines": 94
+        },
+        "API/harness/memory.py": {
+          "lines": 58,
+          "code_lines": 41
+        },
+        "API/harness/tokens.py": {
+          "lines": 108,
+          "code_lines": 86
+        },
+        "API/harness/tools.py": {
+          "lines": 146,
+          "code_lines": 121
+        },
+        "API/main.py": {
+          "lines": 112,
+          "code_lines": 91
+        }
+      },
+      "total_lines": 943,
+      "total_code_lines": 752
+    }
+  },
+  "state_files": {
+    "memory": "/Users/tamarkl/recipe-agent-tamar/results/state/api_memory.json",
+    "session_1": "/Users/tamarkl/recipe-agent-tamar/results/state/api_session_1_history.json",
+    "session_2": "/Users/tamarkl/recipe-agent-tamar/results/state/api_session_2_history.json"
+  }
+}
